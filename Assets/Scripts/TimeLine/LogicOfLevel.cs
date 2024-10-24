@@ -30,7 +30,7 @@ public class LogicOfLevel : MonoBehaviour, ITimeLineService
         ServiceLocator.Instance.UnregisterService<ITimeLineService>();
     }
 
-    private void Start()
+    public void Configure()
     {
         try
         {
@@ -46,10 +46,7 @@ public class LogicOfLevel : MonoBehaviour, ITimeLineService
         _steps = new List<StepOfGame>();
         _topos = new List<Topo>();
         timeLightsSystem.Configure(this);
-    }
-
-    public void Configure(IGameLoop gameLoop)
-    {
+        
         //calculate how log the level will be
         totalTime = _levelStartControllerInstance.TimeOfGame;
         var totalWeight = _levelStartControllerInstance.Steps.Sum(step => step.weight);

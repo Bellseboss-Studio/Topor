@@ -71,9 +71,9 @@ public class TimeLineMono : MonoBehaviour, ITimeLineService
         }
     }
 
-    public void Configure(IGameLoop gameLoop)
+    public void Configure()
     {
-        _gameLoop = gameLoop;
+        //_gameLoop = gameLoop;
         StartGame();
     }
 
@@ -95,7 +95,7 @@ public class TimeLineMono : MonoBehaviour, ITimeLineService
 
 public interface ITimeLineService
 {
-    void Configure(IGameLoop gameLoop);
+    void Configure();
     void StartCount();
     bool GameIsEnded { get; }
     void StopGame();

@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "com.bellseboss.servicelocator": "https://github.com/luisplata/ServiceLocatorToUnity.git",
+    "com.bellseboss.state": "https://github.com/luisplata/State-PatterDesing.git",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.device-simulator.devices": "1.0.0",
     "com.unity.feature.2d": "2.0.0",

@@ -64,7 +64,7 @@ public class GameLoop : MonoBehaviour, IGameLoop
             fruitsMono.StartToSpawn();
         }).Wait(()=>fruitsMono.Finished).Add(() =>
         {
-            ServiceLocator.Instance.GetService<ITimeLineService>().Configure(this);
+            ServiceLocator.Instance.GetService<ITimeLineService>().Configure();
         }).Add(() =>
         {
             ServiceLocator.Instance.GetService<ITimeLineService>().StartCount();

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeOfGame: 60
   steps:
-  - weight: 50
+  - stepIdentifier: {fileID: 11400000, guid: 9b58fb1067453ca4a9e1ee482f0ef932, type: 2}
+    weight: 50
     toposToSpawn:
     - toposToSpawn: a
       countOfEnemyToSpawnOfMin: 30
@@ -25,9 +26,12 @@ MonoBehaviour:
     - toposToSpawn: a
       countOfEnemyToSpawnOfMin: 10
       deltaSpawn: 0
-  - weight: 50
+    timeLineStep: {fileID: 0}
+  - stepIdentifier: {fileID: 11400000, guid: 8046c6d979d5f924ca87c83fe9f6ab68, type: 2}
+    weight: 50
     toposToSpawn:
     - toposToSpawn: a
       countOfEnemyToSpawnOfMin: 60
       deltaSpawn: 0
+    timeLineStep: {fileID: 0}
   levelIndex: 1
