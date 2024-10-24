@@ -349,6 +349,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2911315252655209361, guid: 2546dc930274b4949874997aa1c3d6d2, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1480293612}
+    - target: {fileID: 2911315252655209361, guid: 2546dc930274b4949874997aa1c3d6d2, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911315252655209361, guid: 2546dc930274b4949874997aa1c3d6d2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5876581137155184566, guid: 2546dc930274b4949874997aa1c3d6d2, type: 3}
       propertyPath: m_Name
       value: CanvasUiGame
@@ -515,6 +527,7 @@ GameObject:
   - component: {fileID: 1480293612}
   - component: {fileID: 1480293614}
   - component: {fileID: 1480293615}
+  - component: {fileID: 1480293616}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -645,6 +658,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 1480293610}
+--- !u!114 &1480293616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480293610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9420f5aea32df7646ab1a75a6346d5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matteColor: {r: 0, g: 0, b: 0, a: 1}
+  referenceMode: 0
+  x: 9
+  y: 16
+  width: 960
+  height: 540
+  onAwake: 1
+  onUpdate: 0
 --- !u!1001 &5056156434094603097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -656,6 +689,18 @@ PrefabInstance:
     - target: {fileID: 4955764616202438529, guid: 8fb0f82e521c50d43b85fd30e8014c78, type: 3}
       propertyPath: m_Name
       value: CanvasDebug
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940915142044174408, guid: 8fb0f82e521c50d43b85fd30e8014c78, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1480293612}
+    - target: {fileID: 6940915142044174408, guid: 8fb0f82e521c50d43b85fd30e8014c78, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940915142044174408, guid: 8fb0f82e521c50d43b85fd30e8014c78, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9015089797247516129, guid: 8fb0f82e521c50d43b85fd30e8014c78, type: 3}
       propertyPath: m_Pivot.x
