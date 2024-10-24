@@ -4,6 +4,12 @@ public class ConditionState : BaseState
 {
     public ConditionState(TouchTopo touchTopo, FruitsMono fruitsMono, int nextScene)
     {
+        _metaDataState = new MetaDataState()
+        {
+            id = "Condition",
+            isFirst = false,
+            nextStateId = "End"
+        };
         _teaTime.Pause().Add(() =>
         {
             
