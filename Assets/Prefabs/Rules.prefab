@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fruitsMono: {fileID: 3653209907000186481}
   timeAfterEnd: 0
-  nextScene: 2
+  nextScene: 0
   touchTopo: {fileID: 1873001695743292519}
 --- !u!114 &8268240213348791189
 MonoBehaviour:

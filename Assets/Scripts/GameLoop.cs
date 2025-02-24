@@ -108,7 +108,7 @@ public class GameLoop : MonoBehaviour, IGameLoop
                     .ShowEndGameAnimation(fruitsMono.AllFruitAreDead);
             }).Wait(() => ServiceLocator.Instance.GetService<IUiControllerService>().AnimationStartGame).Add(() =>
             {
-                SceneManager.LoadScene(nextScene);
+                SceneManager.LoadScene(nextScene + 1);
             });
     }
 

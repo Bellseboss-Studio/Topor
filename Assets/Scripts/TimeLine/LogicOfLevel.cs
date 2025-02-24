@@ -160,6 +160,6 @@ public class LogicOfLevel : MonoBehaviour, ITimeLineService
         }
 
         timeLightsSystem.SetInterval(_deltaTimeGlobal / totalTime);
-        slider.value = _deltaTimeGlobal / totalTime;
+        slider.value = Mathf.Clamp(_deltaTimeGlobal / totalTime, 0, 1);
     }
 }
