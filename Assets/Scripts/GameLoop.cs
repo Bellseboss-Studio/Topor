@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,8 +10,32 @@ public class GameLoop : MonoBehaviour, IGameLoop
     [SerializeField] private TouchTopo touchTopo;
     private TeaTime _idle, _ready, _game, _condition, _end;
     private TeaTime _currentTeaTime;
+    
+    private void LoadScene(int escenaBuildIndex)
+    {
+        if (escenaBuildIndex == SceneManager.GetActiveScene().buildIndex)
+        {
+            ServiceLocator.Instance.GetService<ITransitionService>().OcultarCortinilla();
+            ServiceLocator.Instance.GetService<ITransitionService>().OnEscenaLista -= LoadScene;
+        }
+    }
 
-    void Start()
+    void Awake()
+    {
+        ServiceLocator.Instance.GetService<ITransitionService>().OnEscenaLista += LoadScene;
+    }
+
+    private void OnEnable()
+    {
+        ServiceLocator.Instance.GetService<ITransitionService>().OnCargaFinalizada += StartControlled;
+    }
+
+    private void OnDisable()
+    {
+        ServiceLocator.Instance.GetService<ITransitionService>().OnCargaFinalizada -= StartControlled;
+    }
+
+    private void StartControlled()
     {
         ConfigureButtons();
         ConfigureGameLoop();
@@ -108,7 +133,7 @@ public class GameLoop : MonoBehaviour, IGameLoop
                     .ShowEndGameAnimation(fruitsMono.AllFruitAreDead);
             }).Wait(() => ServiceLocator.Instance.GetService<IUiControllerService>().AnimationStartGame).Add(() =>
             {
-                SceneManager.LoadScene(nextScene + 1);
+                ServiceLocator.Instance.GetService<ITransitionService>().IniciarCarga(nextScene + 1, 1);
             });
     }
 
