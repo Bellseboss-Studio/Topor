@@ -220,6 +220,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{d5a4dc9d-b97d-4e0b-971a-05a7fc2e893e}">
+		<property name="volume">
+			<value>-14.5</value>
+		</property>
 		<property name="name">
 			<value>Wind</value>
 		</property>
