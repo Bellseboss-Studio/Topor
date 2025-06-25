@@ -890,7 +890,6 @@ MonoBehaviour:
   videoPlayer: {fileID: 5620151814152445989}
   video: {fileID: 1004904011883628816}
   skipButton: {fileID: 8962019658388937752}
-<<<<<<< HEAD
   videoClipStart: initGame
   videoClipEndLose: GameLose
   videoClipEndWin: GameWin
@@ -1119,11 +1118,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-=======
-  videoClipStart: 
-  videoClipEndLose: 
-  videoClipEndWin: 
->>>>>>> 0e7392fce093c5e607c77b431b9d04bf78633332
 --- !u!1 &3947013398413318527
 GameObject:
   m_ObjectHideFlags: 0
