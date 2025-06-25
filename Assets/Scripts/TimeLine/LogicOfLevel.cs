@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LogicOfLevel : MonoBehaviour, ITimeLineService
 {
@@ -9,6 +10,7 @@ public class LogicOfLevel : MonoBehaviour, ITimeLineService
     [SerializeField] private FactoryOfTopos factoryOfTopos;
     [SerializeField] private Map map;
     [SerializeField] private TimeLightsSystem timeLightsSystem;
+    [SerializeField] private Slider slider;
     private LevelStartController _levelStartControllerInstance;
     [SerializeField] private float deltaTimeLocal, _deltaTimeGlobal, _deltaTimeToStartStep;
     private float totalTime;
@@ -84,6 +86,11 @@ public class LogicOfLevel : MonoBehaviour, ITimeLineService
         _isPaused = isPaused;
     }
 
+    public LevelStartController GetConfigOfLevel()
+    {
+        return _levelStartController;
+    }
+
     private void Update()
     {
         if (!isConfigured || GameIsEnded || _isPaused) return;
@@ -120,6 +127,7 @@ public class LogicOfLevel : MonoBehaviour, ITimeLineService
                     break;
                 }
             }
+
             //check if all steps are done
             var isAllStepsDone = true;
             foreach (var timeLineStep in currentStepTime.GetTimeLine().GetSteps())
@@ -130,7 +138,7 @@ public class LogicOfLevel : MonoBehaviour, ITimeLineService
                     break;
                 }
             }
-            
+
             if (isAllStepsDone)
             {
                 currentStepTime.stepIdentifier.IsDone = true;
@@ -152,5 +160,6 @@ public class LogicOfLevel : MonoBehaviour, ITimeLineService
         }
 
         timeLightsSystem.SetInterval(_deltaTimeGlobal / totalTime);
+        slider.value = Mathf.Clamp(_deltaTimeGlobal / totalTime, 0, 1);
     }
 }
