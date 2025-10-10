@@ -121,6 +121,73 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &478555337218132155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2973069775376423401}
+  - component: {fileID: 2811562309334295289}
+  m_Layer: 5
+  m_Name: AudioPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2973069775376423401
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478555337218132155}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5077411758500241539}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2811562309334295289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478555337218132155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 263623292
+      Data2: 1122466318
+      Data3: -489455458
+      Data4: -1494029249
+    Path: event:/Cinematics/Beep
+  Event: 
+  PlayEvent: 0
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &549930013124068898
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,6 +887,7 @@ RectTransform:
   - {fileID: 296364771073465774}
   - {fileID: 3694135226426407179}
   - {fileID: 4949596820761024886}
+  - {fileID: 2973069775376423401}
   m_Father: {fileID: 9153207626135136974}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -861,6 +929,28 @@ MonoBehaviour:
   videoClipStart: initGame
   videoClipEndLose: GameLose
   videoClipEndWin: GameWin
+  m_EventEmitter: {fileID: 2811562309334295289}
+  m_EventNameStart:
+    Guid:
+      Data1: 601025763
+      Data2: 1314430136
+      Data3: -1378094184
+      Data4: 2126824336
+    Path: event:/Cinematics/seq_InitGame
+  m_EventNameEndLoose:
+    Guid:
+      Data1: 263623292
+      Data2: 1122466318
+      Data3: -489455458
+      Data4: -1494029249
+    Path: event:/Utils/Beep
+  m_EventNameEndWin:
+    Guid:
+      Data1: 263623292
+      Data2: 1122466318
+      Data3: -489455458
+      Data4: -1494029249
+    Path: event:/Utils/Beep
 --- !u!114 &764191257342872135
 MonoBehaviour:
   m_ObjectHideFlags: 0
