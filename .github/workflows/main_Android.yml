@@ -1,6 +1,7 @@
 name: Actions Android Dev 😎
 on:
   workflow_dispatch: {}
+  
 jobs:
   build:
     name: Build for ${{ matrix.targetPlatform }}
