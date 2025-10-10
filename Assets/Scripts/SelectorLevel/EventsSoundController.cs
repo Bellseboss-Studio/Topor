@@ -18,7 +18,7 @@ public class EventsSoundController : MonoBehaviour
         {
             velocity = Mathf.Abs(scrollRect.velocity.x);
             var normalizedVelocityWithClamp = Mathf.Clamp(velocity / maxVelocity, 0, 1);
-            Debug.Log($"Scrolling: {normalizedVelocityWithClamp}");
+            //Debug.Log($"Scrolling: {normalizedVelocityWithClamp}");
             if (normalizedVelocityWithClamp is > 0.1f and <= 1f && _canPlaySounds)
             {
                 OnScroll?.Invoke();

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,8 +10,32 @@ public class GameLoop : MonoBehaviour, IGameLoop
     [SerializeField] private TouchTopo touchTopo;
     private TeaTime _idle, _ready, _game, _condition, _end;
     private TeaTime _currentTeaTime;
+    
+    private void LoadScene(int escenaBuildIndex)
+    {
+        if (escenaBuildIndex == SceneManager.GetActiveScene().buildIndex)
+        {
+            ServiceLocator.Instance.GetService<ITransitionService>().OcultarCortinilla();
+            ServiceLocator.Instance.GetService<ITransitionService>().OnEscenaLista -= LoadScene;
+        }
+    }
 
-    void Start()
+    void Awake()
+    {
+        ServiceLocator.Instance.GetService<ITransitionService>().OnEscenaLista += LoadScene;
+    }
+
+    private void OnEnable()
+    {
+        ServiceLocator.Instance.GetService<ITransitionService>().OnCargaFinalizada += StartControlled;
+    }
+
+    private void OnDisable()
+    {
+        ServiceLocator.Instance.GetService<ITransitionService>().OnCargaFinalizada -= StartControlled;
+    }
+
+    private void StartControlled()
     {
         ConfigureButtons();
         ConfigureGameLoop();
@@ -83,28 +108,33 @@ public class GameLoop : MonoBehaviour, IGameLoop
         });
 
         _end = this.tt().Pause().Add(() =>
-        {
-            if (fruitsMono.AllFruitAreDead)
             {
-                ServiceLocator.Instance.GetService<IUiControllerService>().SetTitleEndGame("You Lose!");
-                ServiceLocator.Instance.GetService<IUiControllerService>().SetSubtitleEndGame("All Fruits are Dead!");
-            }
-            else
-            {
-                ServiceLocator.Instance.GetService<IUiControllerService>().SetTitleEndGame("You Win!");
-                ServiceLocator.Instance.GetService<IUiControllerService>().SetSubtitleEndGame("You save a few fruits!");
-            }
+                if (fruitsMono.AllFruitAreDead)
+                {
+                    ServiceLocator.Instance.GetService<IAnimationBehaviour>().PlayDefeat();
+                    ServiceLocator.Instance.GetService<IUiControllerService>().SetTitleEndGame("You Lose!");
+                    ServiceLocator.Instance.GetService<IUiControllerService>()
+                        .SetSubtitleEndGame("All Fruits are Dead!");
+                }
+                else
+                {
+                    ServiceLocator.Instance.GetService<IAnimationBehaviour>().PlayVictory();
+                    ServiceLocator.Instance.GetService<IUiControllerService>().SetTitleEndGame("You Win!");
+                    ServiceLocator.Instance.GetService<IUiControllerService>()
+                        .SetSubtitleEndGame("You save a few fruits!");
+                }
 
-            ServiceLocator.Instance.GetService<ITimeLineService>().StopGame();
-            ServiceLocator.Instance.GetService<IUiControllerService>().ShowEndGamePanel(true);
-        }).Wait(() => ServiceLocator.Instance.GetService<IUiControllerService>().SelectedEndGame).Add(() =>
-        {
-            ServiceLocator.Instance.GetService<IUiControllerService>().HideEndGamePanel();
-            ServiceLocator.Instance.GetService<IUiControllerService>().ShowEndGameAnimation(fruitsMono.AllFruitAreDead);
-        }).Wait(() => ServiceLocator.Instance.GetService<IUiControllerService>().AnimationStartGame).Add(() =>
-        {
-            SceneManager.LoadScene(nextScene + 1);
-        });
+                ServiceLocator.Instance.GetService<ITimeLineService>().StopGame();
+            }).Add(5).Add(() => { ServiceLocator.Instance.GetService<IUiControllerService>().ShowEndGamePanel(true); })
+            .Wait(() => ServiceLocator.Instance.GetService<IUiControllerService>().SelectedEndGame).Add(() =>
+            {
+                ServiceLocator.Instance.GetService<IUiControllerService>().HideEndGamePanel();
+                ServiceLocator.Instance.GetService<IUiControllerService>()
+                    .ShowEndGameAnimation(fruitsMono.AllFruitAreDead);
+            }).Wait(() => ServiceLocator.Instance.GetService<IUiControllerService>().AnimationStartGame).Add(() =>
+            {
+                ServiceLocator.Instance.GetService<ITransitionService>().IniciarCarga(nextScene + 1, 1);
+            });
     }
 
     private void ConfigureButtons()

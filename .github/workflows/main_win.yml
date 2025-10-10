@@ -61,8 +61,3 @@ jobs:
           ITCH_GAME: ${{vars.ITCHIO_PAGE}}
           ITCH_USER: peryloth
           PACKAGE: build
-      - name: Cleanup to avoid storage limit
-        if: always()
-        uses: geekyeggo/delete-artifact@v1
-        with:
-            name: build-Windows
