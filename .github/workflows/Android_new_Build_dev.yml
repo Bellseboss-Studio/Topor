@@ -1,12 +1,6 @@
 name: Actions Android Dev 😎
 on:
   workflow_dispatch: {}
-  push:
-    branches:
-      - develop
-  pull_request:
-    branches:
-      - develop
 
 jobs:
   buildAndTestForLinuxBasedPlatforms:
