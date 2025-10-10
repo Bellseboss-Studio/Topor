@@ -1,12 +1,6 @@
 name: Actions Windows 😎
 on: 
   workflow_dispatch: {}
-  push:
-    branches:
-      - develop
-  pull_request:
-    branches:
-      - develop
 jobs:
   build:
     name: Build Project
@@ -26,6 +20,9 @@ jobs:
         with:
           path: Library
           key: Library
+      # Cleanup
+      - name: Clean up
+        uses: jlumbroso/free-disk-space@v1.2.0
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v4
@@ -58,8 +55,3 @@ jobs:
           ITCH_GAME: ${{vars.ITCHIO_PAGE}}
           ITCH_USER: peryloth
           PACKAGE: build
-      - name: Cleanup to avoid storage limit
-        if: always()
-        uses: geekyeggo/delete-artifact@v1
-        with:
-            name: build-Windows

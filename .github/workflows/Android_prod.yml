@@ -1,9 +1,6 @@
 name: Actions Android Prod 😎
 on:
   workflow_dispatch: {}
-  pull_request:
-    branches:
-      - main
 jobs:
   build:
     name: Build for ${{ matrix.targetPlatform }}
@@ -33,7 +30,7 @@ jobs:
             Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-
             Library-${{ matrix.projectPath }}-
             Library-
-      - if: matrix.targetPlatform == 'Android'
+      - name: Clean up
         uses: jlumbroso/free-disk-space@v1.2.0
       - uses: game-ci/unity-builder@v4
         env:
