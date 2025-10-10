@@ -1,20 +1,23 @@
-name: Actions Android Prod 😎
+name: Actions Android Dev 😎
 on:
   workflow_dispatch: {}
+
 jobs:
-  build:
+  buildAndTestForLinuxBasedPlatforms:
     name: Build for ${{ matrix.targetPlatform }}
     runs-on: ubuntu-latest
-    environment: production
     strategy:
       fail-fast: false
       matrix:
-        # projectPath:
-          # - test-project
+        projectPath:
+          - .
         unityVersion:
-          - 2022.3.22f1
+          - 2022.3.56f1
         targetPlatform:
+          #- StandaloneLinux64 # Build a Linux 64-bit standalone.
+          #- iOS # Build an iOS player.
           - Android # Build an Android player.
+          #- WebGL # WebGL.
     steps:
       - uses: actions/checkout@v4
         with:
@@ -30,7 +33,7 @@ jobs:
             Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-
             Library-${{ matrix.projectPath }}-
             Library-
-      - name: Clean up
+      - if: matrix.targetPlatform == 'Android'
         uses: jlumbroso/free-disk-space@v1.2.0
       - uses: game-ci/unity-builder@v4
         env:
@@ -46,12 +49,11 @@ jobs:
         with:
           name: build-Android
           path: build/Android
-      
+
   deploy:
     name: Butler Push to Itch
     runs-on: ubuntu-latest
-    environment: production
-    needs: build
+    needs: buildAndTestForLinuxBasedPlatforms
     steps:
       - uses: actions/download-artifact@v4
         with:
@@ -70,4 +72,4 @@ jobs:
         if: always()
         uses: geekyeggo/delete-artifact@v1
         with:
-            name: build-Windows
+            name: build-Android
