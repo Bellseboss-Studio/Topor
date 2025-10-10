@@ -1,8 +1,11 @@
 ﻿using System.Collections;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.Utilities;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using Debug = UnityEngine.Debug;
 
 public class UIController : MonoBehaviour, IUiControllerService
 {
@@ -12,7 +15,14 @@ public class UIController : MonoBehaviour, IUiControllerService
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private GameObject video;
     [SerializeField] private Button skipButton;
+    
+    [Tooltip("Nombres de los videos")]
     [SerializeField] private string videoClipStart, videoClipEndLose, videoClipEndWin;
+    
+    [Header("FMOD events for videos")]
+    [SerializeField] private FMODUnity.StudioEventEmitter m_EventEmitter;
+    [SerializeField] private FMODUnity.EventReference m_EventNameStart, m_EventNameEndLoose, m_EventNameEndWin;
+    
     private IGameLoop _gameLoop;
     public bool SelectedEndGame { get; private set; }
     public bool SelectedStartGame { get; private set; }
@@ -63,11 +73,17 @@ public class UIController : MonoBehaviour, IUiControllerService
         uiOfGame.SetActive(false);
         videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Videos", videoClipStart + ".mp4");
         videoPlayer.Prepare();
+        AssignFMODEvent(m_EventNameStart);
         videoPlayer.prepareCompleted += source =>
         {
             video.SetActive(true);
             StartCoroutine(StartVideo());
         };
+    }
+
+    private void AssignFMODEvent(FMODUnity.EventReference eventRef)
+    {
+        m_EventEmitter.EventReference = eventRef;
     }
 
     public void ShowUiOfGame()
@@ -89,11 +105,17 @@ public class UIController : MonoBehaviour, IUiControllerService
     private IEnumerator StartVideo()
     {
         StartVideoPlayer();
+        StartAudioForVideo();
         Debug.Log($"Start Video {videoPlayer.length}");
         yield return new WaitForSeconds((float)videoPlayer.length);
         FinishVideo();
     }
 
+    private void StartAudioForVideo()
+    {
+       m_EventEmitter.Play(); 
+    }
+    
     private void StartVideoPlayer()
     {
         AnimationStartGame = false;
@@ -137,6 +159,7 @@ public class UIController : MonoBehaviour, IUiControllerService
         videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Videos",
             !lose ? videoClipEndWin + ".mp4" : videoClipEndLose + ".mp4");
         videoPlayer.Prepare();
+        AssignFMODEvent(lose ? m_EventNameEndLoose: m_EventNameEndWin);
         videoPlayer.prepareCompleted += source =>
         {
             video.SetActive(true);
