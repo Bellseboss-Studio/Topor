@@ -1,29 +1,21 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Video;
 
 public class VideoPlayerScreen : MonoBehaviour
 {
     public UnityEvent OnFinishVideo;
-    [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private float timeToSplash;
     [SerializeField] private string videoClipStart;
     
     private void Start()
     {
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Videos", videoClipStart + ".mp4");
-        videoPlayer.Prepare();
-        videoPlayer.prepareCompleted += source =>
-        {
-            videoPlayer.Play();
-            StartCoroutine(FinishVideo());
-        };
+        StartCoroutine(FinishVideo(timeToSplash));
     }
 
-    private IEnumerator FinishVideo()
+    private IEnumerator FinishVideo(float timeToWait)
     {
-        yield return new WaitForSeconds((float)videoPlayer.length);
-        videoPlayer.Stop();
+        yield return new WaitForSeconds(timeToWait);
         OnFinishVideo.Invoke();
     }
 }

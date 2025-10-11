@@ -1,10 +1,7 @@
 ﻿using System.Collections;
-using System.Diagnostics;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.Utilities;
 using UnityEngine.UI;
-using UnityEngine.Video;
 using Debug = UnityEngine.Debug;
 
 public class UIController : MonoBehaviour, IUiControllerService
@@ -12,17 +9,18 @@ public class UIController : MonoBehaviour, IUiControllerService
     [SerializeField] private GameObject startPanel, endGamePanel, animationPanel, uiOfGame;
     [SerializeField] private Button startButton, endButton;
     [SerializeField] private TextMeshProUGUI titleEndGame, subtitleEndGame;
-    [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private float timeToWatch;
     [SerializeField] private GameObject video;
     [SerializeField] private Button skipButton;
-    
-    [Tooltip("Nombres de los videos")]
-    [SerializeField] private string videoClipStart, videoClipEndLose, videoClipEndWin;
-    
-    [Header("FMOD events for videos")]
-    [SerializeField] private FMODUnity.StudioEventEmitter m_EventEmitter;
+
+    [Tooltip("Nombres de los videos")] [SerializeField]
+    private string videoClipStart, videoClipEndLose, videoClipEndWin;
+
+    [Header("FMOD events for videos")] [SerializeField]
+    private FMODUnity.StudioEventEmitter m_EventEmitter;
+
     [SerializeField] private FMODUnity.EventReference m_EventNameStart, m_EventNameEndLoose, m_EventNameEndWin;
-    
+
     private IGameLoop _gameLoop;
     public bool SelectedEndGame { get; private set; }
     public bool SelectedStartGame { get; private set; }
@@ -71,14 +69,9 @@ public class UIController : MonoBehaviour, IUiControllerService
         startPanel.SetActive(false);
         endGamePanel.SetActive(false);
         uiOfGame.SetActive(false);
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Videos", videoClipStart + ".mp4");
-        videoPlayer.Prepare();
         AssignFMODEvent(m_EventNameStart);
-        videoPlayer.prepareCompleted += source =>
-        {
-            video.SetActive(true);
-            StartCoroutine(StartVideo());
-        };
+        video.SetActive(true);
+        StartCoroutine(StartVideo(timeToWatch));
     }
 
     private void AssignFMODEvent(FMODUnity.EventReference eventRef)
@@ -102,31 +95,26 @@ public class UIController : MonoBehaviour, IUiControllerService
         startPanel.SetActive(true);
     }
 
-    private IEnumerator StartVideo()
+    private IEnumerator StartVideo(float timeToWait)
     {
         StartVideoPlayer();
         StartAudioForVideo();
-        Debug.Log($"Start Video {videoPlayer.length}");
-        yield return new WaitForSeconds((float)videoPlayer.length);
+        yield return new WaitForSeconds(timeToWait);
         FinishVideo();
     }
 
     private void StartAudioForVideo()
     {
-       m_EventEmitter.Play(); 
+        m_EventEmitter.Play();
     }
-    
+
     private void StartVideoPlayer()
     {
         AnimationStartGame = false;
-        videoPlayer.Play();
     }
 
     private void FinishVideo()
     {
-        videoPlayer.Stop();
-        //clean url
-        videoPlayer.url = "";
         AnimationStartGame = true;
     }
 
@@ -155,16 +143,9 @@ public class UIController : MonoBehaviour, IUiControllerService
         startPanel.SetActive(false);
         endGamePanel.SetActive(false);
         uiOfGame.SetActive(false);
-        //videoPlayer.clip = !lose ? videoClipEndWin : videoClipEndLose;
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Videos",
-            !lose ? videoClipEndWin + ".mp4" : videoClipEndLose + ".mp4");
-        videoPlayer.Prepare();
-        AssignFMODEvent(lose ? m_EventNameEndLoose: m_EventNameEndWin);
-        videoPlayer.prepareCompleted += source =>
-        {
-            video.SetActive(true);
-            StartCoroutine(StartVideo());
-        };
+        AssignFMODEvent(lose ? m_EventNameEndLoose : m_EventNameEndWin);
+        video.SetActive(true);
+        StartCoroutine(StartVideo(timeToWatch));
     }
 }
 
