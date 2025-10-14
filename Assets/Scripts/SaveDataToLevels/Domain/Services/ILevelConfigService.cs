@@ -6,6 +6,5 @@ namespace Game.SaveDataToLevels.Domain.Services
     {
         void SaveLevel(LevelConfig level);
         LevelConfig GetCurrentLevel();
-        // void LoadFromScriptable(LevelStartDataSO levelData);
     }
 }
