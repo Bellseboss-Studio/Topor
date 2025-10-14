@@ -1,0 +1,16 @@
+{
+    "name": "SaceDataToLevelsInfraDefinition",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8173d97f98254ca468fcd1280f38862c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

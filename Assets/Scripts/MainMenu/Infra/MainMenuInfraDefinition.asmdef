@@ -1,0 +1,17 @@
+{
+    "name": "MainMenuInfraDefinition",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7a06f41026254e0489acd694f6424463",
+        "GUID:c6cbbc63e2387574dbe5de9d70371ddf"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
