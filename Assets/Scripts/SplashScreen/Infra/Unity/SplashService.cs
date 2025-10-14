@@ -30,8 +30,10 @@ namespace Game.Splash.Infra.Unity
             OnSplashStarted?.Invoke();
 
             inputHandler.OnSkip += Skip;
-
-            yield return uiController.PlaySequence(sequence, EndSequence);
+            if (uiController != null)
+            {
+                yield return uiController.PlaySequence(sequence, EndSequence);
+            }
         }
 
         public void Skip()
