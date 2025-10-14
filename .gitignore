@@ -100,3 +100,4 @@ crashlytics-build.properties
 fmod_editor.log
 /Topor_FMOD/.cache/*
 
+/.utmp

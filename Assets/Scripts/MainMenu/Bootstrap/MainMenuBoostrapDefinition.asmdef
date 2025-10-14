@@ -1,0 +1,19 @@
+{
+    "name": "MainMenuBoostrapDefinition",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7a06f41026254e0489acd694f6424463",
+        "GUID:dd0bc626ca62b1e41b56acb53ea4075c",
+        "GUID:c6cbbc63e2387574dbe5de9d70371ddf",
+        "GUID:2260f398a160f064ea8c6f3a0ed6b4c6"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,17 @@
+{
+    "name": "TransitionServiceInfraDefinition",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2efdf63914f6cda4fb7c315f53136045",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

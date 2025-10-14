@@ -1,0 +1,19 @@
+{
+    "name": "SplashScreenBoostrapDefinition",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1938d176b6b90004d967d52f01006f73",
+        "GUID:84114d581718e8347a8fcbead88d35f2",
+        "GUID:2260f398a160f064ea8c6f3a0ed6b4c6",
+        "GUID:c6cbbc63e2387574dbe5de9d70371ddf"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
