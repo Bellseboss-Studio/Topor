@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{82a4bdae-df99-4557-a9e6-1b9638796d39}">
 		<property name="assetPath">
 			<value>SFX/Characters/Moles/TopoLookAround/sfx_topoLookAround_4.wav</value>

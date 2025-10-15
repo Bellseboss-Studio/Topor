@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{7c89ad41-2abf-4e69-9423-88612583016f}">
 		<property name="name">
 			<value>sfx_topoSquish</value>
@@ -133,8 +133,8 @@
 			<value>0.58733333333333337</value>
 		</property>
 		<relationship name="modulators">
-			<destination>{8118528d-475f-489f-a6ab-38880f41cfc2}</destination>
 			<destination>{2d1c31ef-eb53-4e38-be92-6b7f6ec02bc5}</destination>
+			<destination>{8118528d-475f-489f-a6ab-38880f41cfc2}</destination>
 		</relationship>
 		<relationship name="sounds">
 			<destination>{e12b7462-3c88-405b-bba9-938fdd879f2f}</destination>
@@ -212,20 +212,20 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{fe9b7ba1-94c5-4f87-afb9-ad6c323cd631}" />
-	<object class="RandomizerModulator" id="{8118528d-475f-489f-a6ab-38880f41cfc2}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>volume</value>
-		</property>
-		<property name="amount">
-			<value>1</value>
-		</property>
-	</object>
 	<object class="RandomizerModulator" id="{2d1c31ef-eb53-4e38-be92-6b7f6ec02bc5}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>pitch</value>
 		</property>
 		<property name="amount">
 			<value>2.08333349</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{8118528d-475f-489f-a6ab-38880f41cfc2}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="amount">
+			<value>1</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{e12b7462-3c88-405b-bba9-938fdd879f2f}">

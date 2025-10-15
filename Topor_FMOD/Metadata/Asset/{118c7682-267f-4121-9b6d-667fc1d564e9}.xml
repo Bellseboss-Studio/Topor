@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="EncodableAsset" id="{118c7682-267f-4121-9b6d-667fc1d564e9}">
 		<property name="assetPath">
 			<value>Cinematics/</value>

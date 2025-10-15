@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{a69cbfd5-b3b4-403d-8160-9c276b2e79bd}">
 		<property name="assetPath">
 			<value>SFX/Characters/Moles/HammerHitsGround/sfx_hammerHitsGround_5.wav</value>

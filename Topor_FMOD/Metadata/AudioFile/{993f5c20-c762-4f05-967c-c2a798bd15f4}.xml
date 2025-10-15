@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{993f5c20-c762-4f05-967c-c2a798bd15f4}">
 		<property name="assetPath">
 			<value>SFX/Characters/Moles/TopoSquish/sfx_topoSquish_5_Voice.wav</value>

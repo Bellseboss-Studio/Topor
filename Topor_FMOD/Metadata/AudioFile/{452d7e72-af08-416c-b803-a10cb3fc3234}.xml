@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{452d7e72-af08-416c-b803-a10cb3fc3234}">
 		<property name="assetPath">
 			<value>SFX/Characters/Moles/TopoTakesVegetable/sfx_topoTakesVegetable_5_Voice.wav</value>

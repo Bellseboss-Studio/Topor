@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{e4e9a36f-0518-49a8-b5c0-286f414fa8f8}">
 		<property name="assetPath">
 			<value>SFX/Characters/Moles/TopoAppears/sfx_topoAppear_3_Rubble.wav</value>
