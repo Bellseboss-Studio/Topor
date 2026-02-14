@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{dcfa07e9-be33-4a94-8ced-03ced4e1c5cf}">
 		<property name="assetPath">
 			<value>SFX/Characters/Moles/TopoVoiceIdle/dg_topoVoiceIdle_3.wav</value>

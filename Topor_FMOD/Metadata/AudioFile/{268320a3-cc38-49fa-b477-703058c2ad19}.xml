@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{268320a3-cc38-49fa-b477-703058c2ad19}">
 		<property name="assetPath">
 			<value>SFX/Characters/Moles/TopoAppears/sfx_topoAppear_2_Voice.wav</value>

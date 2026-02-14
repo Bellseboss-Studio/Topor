@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{7c542d62-598a-4824-9fea-8de5e01b5596}">
 		<property name="name">
 			<value>ui_scroll</value>
@@ -183,8 +183,8 @@
 			<destination>{34784e10-04e0-444d-bdb0-2479f24045a2}</destination>
 		</relationship>
 		<relationship name="automationPoints">
-			<destination>{82e451bd-35d9-4f2d-b215-2d3ef2104208}</destination>
 			<destination>{1013ba2f-c950-4d95-b150-829da3a78861}</destination>
+			<destination>{82e451bd-35d9-4f2d-b215-2d3ef2104208}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{cdbd1cbc-29e6-45c2-9da0-9636e2da36a4}" />
@@ -204,20 +204,20 @@
 			<value>-10</value>
 		</property>
 	</object>
-	<object class="AutomationPoint" id="{82e451bd-35d9-4f2d-b215-2d3ef2104208}">
-		<property name="position">
-			<value>0</value>
-		</property>
-		<property name="value">
-			<value>-14</value>
-		</property>
-	</object>
 	<object class="AutomationPoint" id="{1013ba2f-c950-4d95-b150-829da3a78861}">
 		<property name="position">
 			<value>0.99293785310734461</value>
 		</property>
 		<property name="value">
 			<value>0</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{82e451bd-35d9-4f2d-b215-2d3ef2104208}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>-14</value>
 		</property>
 	</object>
 </objects>

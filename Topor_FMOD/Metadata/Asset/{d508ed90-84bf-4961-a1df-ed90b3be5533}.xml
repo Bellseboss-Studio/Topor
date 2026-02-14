@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="EncodableAsset" id="{d508ed90-84bf-4961-a1df-ed90b3be5533}">
 		<property name="assetPath">
 			<value>SFX/Characters/Moles/TopoLookAround/</value>

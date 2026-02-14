@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="EncodableAsset" id="{1b679917-fde3-4000-aa08-c6f0eb06cf3c}">
 		<property name="assetPath">
 			<value>Aux Assets/Whooshes/</value>
